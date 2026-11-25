@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="tb" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#6ea8fe"/></marker>
+  </defs>
+  <rect x="1" y="1" width="758" height="298" rx="16" fill="#232426" stroke="#3a3c40"/>
+  <text x="32" y="38" font-size="16" font-weight="600" fill="#e8e8e8">t = (1, [2, 3], 4)</text>
+  <text x="32" y="58" font-size="13" fill="#9a9fa6">кортеж хранит ссылки: заменить ссылку нельзя, изменить объект по ссылке можно</text>
+
+  <text x="50" y="94" font-size="12" fill="#9ec5fe">tuple t: набор ссылок не меняется</text>
+  <g stroke="#6ea8fe" stroke-width="1.5" fill="#1f3350">
+    <rect x="50" y="104" width="100" height="44" rx="8"/>
+    <rect x="170" y="104" width="100" height="44" rx="8"/>
+    <rect x="290" y="104" width="100" height="44" rx="8"/>
+  </g>
+  <g font-size="14" text-anchor="middle" fill="#cfe2ff">
+    <text x="100" y="132">ref 0</text><text x="220" y="132">ref 1</text><text x="340" y="132">ref 2</text>
+  </g>
+  <g fill="none" stroke="#6ea8fe" stroke-width="1.8" marker-end="url(#tb)">
+    <path d="M100,148 L100,200"/><path d="M220,148 L220,200"/><path d="M340,148 L340,200"/>
+  </g>
+  <g stroke="#f0a35e" stroke-width="1.5" fill="#4a3320">
+    <rect x="60" y="202" width="80" height="44" rx="8"/>
+    <rect x="155" y="202" width="130" height="44" rx="8" stroke="#ef6f6c"/>
+    <rect x="300" y="202" width="80" height="44" rx="8"/>
+  </g>
+  <g font-size="14" text-anchor="middle" fill="#ffe2c4">
+    <text x="100" y="230">int 1</text><text x="220" y="230">[2, 3, 99]</text><text x="340" y="230">int 4</text>
+  </g>
+  <text x="220" y="270" font-size="12" text-anchor="middle" fill="#f08a87">список изменяем</text>
+
+  <text x="450" y="130" font-size="15" font-weight="600" fill="#f5c08f">t[1].append(99)</text>
+  <text x="450" y="152" font-size="13" fill="#b8bcc2">меняет сам список,</text>
+  <text x="450" y="172" font-size="13" fill="#b8bcc2">ссылки в кортеже те же</text>
+  <text x="450" y="212" font-size="15" font-weight="600" fill="#f08a87">t[1] = [0]</text>
+  <text x="450" y="234" font-size="13" fill="#b8bcc2">TypeError: заменить ссылку нельзя</text>
+</svg>

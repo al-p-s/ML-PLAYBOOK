@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect x="1" y="1" width="758" height="388" rx="16" fill="#232426" stroke="#3a3c40"/>
+  <text x="32" y="38" font-size="16" font-weight="600" fill="#e8e8e8">list.append(x), когда место закончилось</text>
+
+  <!-- 1 -->
+  <text x="32" y="83" font-size="14" fill="#e8e8e8">1. Было</text>
+  <text x="32" y="102" font-size="12" fill="#9a9fa6">len = 4, allocated = 4: места нет</text>
+  <g stroke="#6ea8fe" stroke-width="1.5" fill="#1f3350">
+    <rect x="340" y="66" width="44" height="40" rx="6"/><rect x="388" y="66" width="44" height="40" rx="6"/>
+    <rect x="436" y="66" width="44" height="40" rx="6"/><rect x="484" y="66" width="44" height="40" rx="6"/>
+  </g>
+  <g font-size="12" text-anchor="middle" fill="#cfe2ff">
+    <text x="362" y="91">ref</text><text x="410" y="91">ref</text><text x="458" y="91">ref</text><text x="506" y="91">ref</text>
+  </g>
+
+  <!-- 2 -->
+  <text x="32" y="153" font-size="14" fill="#e8e8e8">2. Выделить блок побольше</text>
+  <text x="32" y="172" font-size="12" fill="#9a9fa6">allocated = 8: запас на будущие append</text>
+  <g stroke="#6fcf97" stroke-width="1.5" stroke-dasharray="4 3" fill="#2c2e31">
+    <rect x="340" y="136" width="44" height="40" rx="6"/><rect x="388" y="136" width="44" height="40" rx="6"/>
+    <rect x="436" y="136" width="44" height="40" rx="6"/><rect x="484" y="136" width="44" height="40" rx="6"/>
+    <rect x="532" y="136" width="44" height="40" rx="6"/><rect x="580" y="136" width="44" height="40" rx="6"/>
+    <rect x="628" y="136" width="44" height="40" rx="6"/><rect x="676" y="136" width="44" height="40" rx="6"/>
+  </g>
+
+  <!-- 3 -->
+  <text x="32" y="223" font-size="14" fill="#e8e8e8">3. Скопировать ссылки</text>
+  <text x="32" y="242" font-size="12" fill="#9a9fa6">4 ссылки переехали, старый блок освобождён</text>
+  <g stroke="#6ea8fe" stroke-width="1.5" fill="#1f3350">
+    <rect x="340" y="206" width="44" height="40" rx="6"/><rect x="388" y="206" width="44" height="40" rx="6"/>
+    <rect x="436" y="206" width="44" height="40" rx="6"/><rect x="484" y="206" width="44" height="40" rx="6"/>
+  </g>
+  <g stroke="#6fcf97" stroke-width="1.5" stroke-dasharray="4 3" fill="#2c2e31">
+    <rect x="532" y="206" width="44" height="40" rx="6"/><rect x="580" y="206" width="44" height="40" rx="6"/>
+    <rect x="628" y="206" width="44" height="40" rx="6"/><rect x="676" y="206" width="44" height="40" rx="6"/>
+  </g>
+  <g font-size="12" text-anchor="middle" fill="#cfe2ff">
+    <text x="362" y="231">ref</text><text x="410" y="231">ref</text><text x="458" y="231">ref</text><text x="506" y="231">ref</text>
+  </g>
+
+  <!-- 4 -->
+  <text x="32" y="293" font-size="14" fill="#e8e8e8">4. Записать x</text>
+  <text x="32" y="312" font-size="12" fill="#9a9fa6">len = 5, allocated = 8</text>
+  <g stroke="#6ea8fe" stroke-width="1.5" fill="#1f3350">
+    <rect x="340" y="276" width="44" height="40" rx="6"/><rect x="388" y="276" width="44" height="40" rx="6"/>
+    <rect x="436" y="276" width="44" height="40" rx="6"/><rect x="484" y="276" width="44" height="40" rx="6"/>
+  </g>
+  <rect x="532" y="276" width="44" height="40" rx="6" fill="#4a3320" stroke="#f0a35e" stroke-width="1.5"/>
+  <g stroke="#6fcf97" stroke-width="1.5" stroke-dasharray="4 3" fill="#2c2e31">
+    <rect x="580" y="276" width="44" height="40" rx="6"/><rect x="628" y="276" width="44" height="40" rx="6"/>
+    <rect x="676" y="276" width="44" height="40" rx="6"/>
+  </g>
+  <g font-size="12" text-anchor="middle" fill="#cfe2ff">
+    <text x="362" y="301">ref</text><text x="410" y="301">ref</text><text x="458" y="301">ref</text><text x="506" y="301">ref</text>
+  </g>
+  <text x="554" y="301" font-size="13" text-anchor="middle" fill="#ffe2c4">x</text>
+
+  <text x="32" y="348" font-size="13" fill="#b8bcc2">Запас пропорционален размеру, поэтому копирования всё реже: append в среднем O(1).</text>
+  <text x="32" y="368" font-size="12" fill="#9a9fa6">При фиксированной прибавке («+10 ячеек») копий было бы много, и серия из n вызовов стоила бы O(n²).</text>
+</svg>

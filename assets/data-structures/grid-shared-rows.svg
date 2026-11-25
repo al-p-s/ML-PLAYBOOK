@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 310" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="gr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#ef6f6c"/></marker>
+    <marker id="gg" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#6fcf97"/></marker>
+  </defs>
+  <rect x="1" y="1" width="758" height="308" rx="16" fill="#232426" stroke="#3a3c40"/>
+  <line x1="380" y1="24" x2="380" y2="286" stroke="#3a3c40"/>
+
+  <!-- левая панель: общая строка -->
+  <text x="32" y="38" font-size="15" font-weight="600" fill="#f08a87">[[0] * 3] * 3</text>
+  <text x="32" y="58" font-size="13" fill="#9a9fa6">одна строка, три ссылки на неё</text>
+  <g stroke="#ef6f6c" stroke-width="1.5" fill="#4a2424">
+    <rect x="46"  y="84" width="84" height="36" rx="8"/>
+    <rect x="146" y="84" width="84" height="36" rx="8"/>
+    <rect x="246" y="84" width="84" height="36" rx="8"/>
+  </g>
+  <g text-anchor="middle" font-size="13" fill="#ffd0ce">
+    <text x="88" y="107">grid[0]</text><text x="188" y="107">grid[1]</text><text x="288" y="107">grid[2]</text>
+  </g>
+  <g fill="none" stroke="#ef6f6c" stroke-width="1.8" marker-end="url(#gr)">
+    <path d="M88,120 C88,160 150,160 170,186"/>
+    <path d="M188,120 L188,186"/>
+    <path d="M288,120 C288,160 226,160 206,186"/>
+  </g>
+  <rect x="118" y="188" width="140" height="40" rx="8" fill="#2c2e31" stroke="#f0a35e" stroke-width="1.5"/>
+  <text x="188" y="213" font-size="14" text-anchor="middle" fill="#ffe2c4">[1, 0, 0]</text>
+  <text x="188" y="252" font-size="13" text-anchor="middle" fill="#f08a87">один объект</text>
+  <text x="188" y="272" font-size="12" text-anchor="middle" fill="#b8bcc2">grid[0][0] = 1 виден во всех строках</text>
+
+  <!-- правая панель: три строки -->
+  <text x="412" y="38" font-size="15" font-weight="600" fill="#6fcf97">[[0] * 3 for _ in range(3)]</text>
+  <text x="412" y="58" font-size="13" fill="#9a9fa6">на каждой итерации создаётся новая строка</text>
+  <g stroke="#6fcf97" stroke-width="1.5" fill="#1d3a2b">
+    <rect x="420" y="84" width="84" height="36" rx="8"/>
+    <rect x="520" y="84" width="84" height="36" rx="8"/>
+    <rect x="620" y="84" width="84" height="36" rx="8"/>
+  </g>
+  <g text-anchor="middle" font-size="13" fill="#d5f5e3">
+    <text x="462" y="107">grid[0]</text><text x="562" y="107">grid[1]</text><text x="662" y="107">grid[2]</text>
+  </g>
+  <g fill="none" stroke="#6fcf97" stroke-width="1.8" marker-end="url(#gg)">
+    <path d="M462,120 L462,186"/>
+    <path d="M562,120 L562,186"/>
+    <path d="M662,120 L662,186"/>
+  </g>
+  <g stroke="#f0a35e" stroke-width="1.5" fill="#2c2e31">
+    <rect x="412" y="188" width="100" height="40" rx="8"/>
+    <rect x="512" y="188" width="100" height="40" rx="8"/>
+    <rect x="612" y="188" width="100" height="40" rx="8"/>
+  </g>
+  <g font-size="14" text-anchor="middle" fill="#ffe2c4">
+    <text x="462" y="213">[1, 0, 0]</text>
+    <text x="562" y="213">[0, 0, 0]</text>
+    <text x="662" y="213">[0, 0, 0]</text>
+  </g>
+  <text x="562" y="252" font-size="13" text-anchor="middle" fill="#6fcf97">три независимых объекта</text>
+  <text x="562" y="272" font-size="12" text-anchor="middle" fill="#b8bcc2">grid[0][0] = 1 меняет только строку 0</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 450" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="db" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#6ea8fe"/></marker>
+    <marker id="dg" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#6fcf97"/></marker>
+    <marker id="do" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#f0a35e"/></marker>
+  </defs>
+  <rect x="1" y="1" width="758" height="448" rx="16" fill="#232426" stroke="#3a3c40"/>
+  <text x="32" y="38" font-size="16" font-weight="600" fill="#e8e8e8">deepcopy: как работает memo</text>
+
+  <rect x="320" y="20" width="220" height="44" rx="10" fill="#1f3350" stroke="#6ea8fe" stroke-width="1.5"/>
+  <text x="430" y="48" font-size="14" text-anchor="middle" fill="#cfe2ff">пришёл объект x</text>
+  <path d="M430,64 L430,100" fill="none" stroke="#6ea8fe" stroke-width="2" marker-end="url(#db)"/>
+
+  <rect x="320" y="100" width="220" height="50" rx="10" fill="#1f3350" stroke="#6ea8fe" stroke-width="1.5"/>
+  <text x="430" y="130" font-size="14" text-anchor="middle" fill="#cfe2ff">id(x) есть в memo?</text>
+
+  <path d="M320,125 L262,125" fill="none" stroke="#6fcf97" stroke-width="2" marker-end="url(#dg)"/>
+  <text x="291" y="117" font-size="12" text-anchor="middle" fill="#8fdcae">да</text>
+  <rect x="40" y="100" width="220" height="50" rx="10" fill="#1d3a2b" stroke="#6fcf97" stroke-width="1.5"/>
+  <text x="150" y="122" font-size="14" text-anchor="middle" fill="#d5f5e3">вернуть копию из memo</text>
+  <text x="150" y="140" font-size="12" text-anchor="middle" fill="#8fdcae">даже если она ещё достраивается</text>
+
+  <path d="M430,150 L430,195" fill="none" stroke="#f0a35e" stroke-width="2" marker-end="url(#do)"/>
+  <text x="442" y="178" font-size="12" fill="#f5c08f">нет</text>
+  <rect x="280" y="195" width="300" height="56" rx="10" fill="#4a3320" stroke="#f0a35e" stroke-width="1.5"/>
+  <text x="430" y="219" font-size="14" text-anchor="middle" fill="#ffe2c4">создать пустую x_copy</text>
+  <text x="430" y="238" font-size="13" text-anchor="middle" fill="#f5c08f">memo[id(x)] = x_copy</text>
+
+  <path d="M430,251 L430,290" fill="none" stroke="#6ea8fe" stroke-width="2" marker-end="url(#db)"/>
+  <rect x="280" y="290" width="300" height="56" rx="10" fill="#1f3350" stroke="#6ea8fe" stroke-width="1.5"/>
+  <text x="430" y="314" font-size="13" text-anchor="middle" fill="#cfe2ff">для каждого элемента x:</text>
+  <text x="430" y="333" font-size="13" text-anchor="middle" fill="#9ec5fe">скопировать и положить в x_copy</text>
+
+  <path d="M580,318 L640,318 L640,42 L542,42" fill="none" stroke="#f0a35e" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#do)"/>
+  <text x="652" y="176" font-size="12" fill="#f5c08f">рекурсия</text>
+  <text x="652" y="194" font-size="12" fill="#f5c08f">для элементов</text>
+
+  <path d="M430,346 L430,380" fill="none" stroke="#6ea8fe" stroke-width="2" marker-end="url(#db)"/>
+  <rect x="320" y="380" width="220" height="44" rx="10" fill="#1d3a2b" stroke="#6fcf97" stroke-width="1.5"/>
+  <text x="430" y="408" font-size="14" text-anchor="middle" fill="#d5f5e3">вернуть x_copy</text>
+
+  <text x="40" y="236" font-size="12" fill="#b8bcc2">Запись в memo делается ДО</text>
+  <text x="40" y="254" font-size="12" fill="#b8bcc2">копирования элементов: при</text>
+  <text x="40" y="272" font-size="12" fill="#b8bcc2">самоссылке нужная копия уже</text>
+  <text x="40" y="290" font-size="12" fill="#b8bcc2">найдётся, и цикла не будет.</text>
+  <text x="40" y="326" font-size="12" fill="#9a9fa6">Ключ это id оригинала.</text>
+</svg>

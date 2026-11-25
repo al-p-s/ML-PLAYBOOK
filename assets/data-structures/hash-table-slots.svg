@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="hb" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#6ea8fe"/></marker>
+    <marker id="ho" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#f0a35e"/></marker>
+    <marker id="hg" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a8f98"/></marker>
+  </defs>
+  <rect x="1" y="1" width="758" height="318" rx="16" fill="#232426" stroke="#3a3c40"/>
+  <text x="32" y="38" font-size="16" font-weight="600" fill="#e8e8e8">Хеш-таблица на 10 ячеек</text>
+  <text x="32" y="58" font-size="13" fill="#9a9fa6">cat (хеш 12) и dog (хеш 22) оба дают ячейку 2</text>
+
+  <!-- ячейки -->
+  <g stroke-width="1.5">
+    <rect x="40"  y="120" width="64" height="52" rx="8" fill="#2c2e31" stroke="#44474c"/>
+    <rect x="108" y="120" width="64" height="52" rx="8" fill="#2c2e31" stroke="#44474c"/>
+    <rect x="176" y="120" width="64" height="52" rx="8" fill="#1f3350" stroke="#6ea8fe"/>
+    <rect x="244" y="120" width="64" height="52" rx="8" fill="#4a3320" stroke="#f0a35e"/>
+    <rect x="312" y="120" width="64" height="52" rx="8" fill="#2c2e31" stroke="#6fcf97" stroke-dasharray="5 4"/>
+    <rect x="380" y="120" width="64" height="52" rx="8" fill="#2c2e31" stroke="#44474c"/>
+    <rect x="448" y="120" width="64" height="52" rx="8" fill="#34363a" stroke="#8a8f98" stroke-dasharray="3 3"/>
+    <rect x="516" y="120" width="64" height="52" rx="8" fill="#2c2e31" stroke="#44474c"/>
+    <rect x="584" y="120" width="64" height="52" rx="8" fill="#2c2e31" stroke="#44474c"/>
+    <rect x="652" y="120" width="64" height="52" rx="8" fill="#2c2e31" stroke="#44474c"/>
+  </g>
+  <g font-size="11" fill="#7c828a" text-anchor="start">
+    <text x="46" y="134">0</text><text x="114" y="134">1</text><text x="182" y="134">2</text>
+    <text x="250" y="134">3</text><text x="318" y="134">4</text><text x="386" y="134">5</text>
+    <text x="454" y="134">6</text><text x="522" y="134">7</text><text x="590" y="134">8</text><text x="658" y="134">9</text>
+  </g>
+  <g font-size="15" text-anchor="middle">
+    <text x="208" y="160" fill="#cfe2ff">cat</text>
+    <text x="276" y="160" fill="#ffe2c4">dog</text>
+    <text x="480" y="162" fill="#a9aeb5" font-size="18">†</text>
+  </g>
+
+  <!-- поиск bird: 2 -> 3 -> 4 -->
+  <g fill="none" stroke-width="2">
+    <path d="M208,116 Q242,76 276,116" stroke="#6ea8fe" marker-end="url(#hb)"/>
+    <path d="M276,116 Q310,76 344,116" stroke="#6ea8fe" marker-end="url(#hb)"/>
+  </g>
+  <text x="276" y="80" font-size="12" text-anchor="middle" fill="#9ec5fe">ищем bird (хеш → ячейка 2): чужой, чужой…</text>
+  <text x="344" y="194" font-size="12" text-anchor="middle" fill="#6fcf97">пусто → стоп, ключа нет</text>
+
+  <!-- вставка dog: проба 2 -> 3 -->
+  <path d="M208,176 Q242,214 270,176" fill="none" stroke="#f0a35e" stroke-width="2" marker-end="url(#ho)"/>
+  <text x="140" y="232" font-size="12" fill="#f5c08f">вставка dog: ячейка 2 занята → проба 3</text>
+
+  <!-- поиск мимо надгробия -->
+  <path d="M480,176 Q514,214 548,176" fill="none" stroke="#8a8f98" stroke-width="2" marker-end="url(#hg)"/>
+  <text x="514" y="232" font-size="12" text-anchor="middle" fill="#a9aeb5">поиск идёт мимо †</text>
+
+  <!-- легенда -->
+  <g font-size="12" fill="#b8bcc2">
+    <rect x="40" y="268" width="14" height="14" rx="3" fill="#2c2e31" stroke="#6fcf97" stroke-dasharray="3 2"/>
+    <text x="62" y="280">пустая: никогда не занималась, поиск здесь останавливается</text>
+    <rect x="40" y="290" width="14" height="14" rx="3" fill="#34363a" stroke="#8a8f98" stroke-dasharray="3 2"/>
+    <text x="62" y="302">† надгробие: раньше было занято, поиск идёт дальше, вставка может занять</text>
+  </g>
+</svg>

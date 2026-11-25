@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="fb" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#6ea8fe"/></marker>
+    <marker id="fg" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#6fcf97"/></marker>
+    <marker id="fo" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#f0a35e"/></marker>
+  </defs>
+  <rect x="1" y="1" width="758" height="398" rx="16" fill="#232426" stroke="#3a3c40"/>
+  <text x="32" y="38" font-size="16" font-weight="600" fill="#e8e8e8">Поиск ключа в хеш-таблице</text>
+
+  <rect x="230" y="66" width="300" height="50" rx="10" fill="#1f3350" stroke="#6ea8fe" stroke-width="1.5"/>
+  <text x="380" y="86" font-size="14" text-anchor="middle" fill="#cfe2ff">ищем key</text>
+  <text x="380" y="105" font-size="12" text-anchor="middle" fill="#9ec5fe">h = hash(key), i = номер ячейки</text>
+  <path d="M380,116 L380,146" fill="none" stroke="#6ea8fe" stroke-width="2" marker-end="url(#fb)"/>
+
+  <rect x="300" y="146" width="160" height="40" rx="10" fill="#1f3350" stroke="#6ea8fe" stroke-width="1.5"/>
+  <text x="380" y="171" font-size="14" text-anchor="middle" fill="#cfe2ff">ячейка i</text>
+
+  <!-- пустая -->
+  <path d="M300,166 L115,166 L115,230" fill="none" stroke="#6fcf97" stroke-width="2" marker-end="url(#fg)"/>
+  <text x="207" y="158" font-size="12" text-anchor="middle" fill="#8fdcae">пустая</text>
+  <rect x="30" y="230" width="170" height="54" rx="10" fill="#1d3a2b" stroke="#6fcf97" stroke-width="1.5"/>
+  <text x="115" y="253" font-size="14" text-anchor="middle" fill="#d5f5e3">ключа нет</text>
+  <text x="115" y="272" font-size="12" text-anchor="middle" fill="#8fdcae">поиск останавливается</text>
+
+  <!-- надгробие и повтор -->
+  <path d="M355,186 L355,230" fill="none" stroke="#f0a35e" stroke-width="2" marker-end="url(#fo)"/>
+  <text x="347" y="213" font-size="12" text-anchor="end" fill="#f5c08f">надгробие</text>
+  <path d="M415,230 L415,186" fill="none" stroke="#f0a35e" stroke-width="2" marker-end="url(#fo)"/>
+  <text x="425" y="213" font-size="12" fill="#f5c08f">повтор</text>
+  <rect x="300" y="230" width="160" height="54" rx="10" fill="#4a3320" stroke="#f0a35e" stroke-width="1.5"/>
+  <text x="380" y="253" font-size="14" text-anchor="middle" fill="#ffe2c4">следующая проба</text>
+  <text x="380" y="272" font-size="12" text-anchor="middle" fill="#f5c08f">по тому же правилу</text>
+
+  <!-- занята -->
+  <path d="M460,166 L637,166 L637,230" fill="none" stroke="#6ea8fe" stroke-width="2" marker-end="url(#fb)"/>
+  <text x="548" y="158" font-size="12" text-anchor="middle" fill="#9ec5fe">занята</text>
+  <rect x="545" y="230" width="184" height="54" rx="10" fill="#1f3350" stroke="#6ea8fe" stroke-width="1.5"/>
+  <text x="637" y="253" font-size="12" text-anchor="middle" fill="#cfe2ff">тот же объект (is)</text>
+  <text x="637" y="271" font-size="12" text-anchor="middle" fill="#cfe2ff">или хеш равен и ==?</text>
+
+  <path d="M545,257 L460,257" fill="none" stroke="#f0a35e" stroke-width="2" marker-end="url(#fo)"/>
+  <text x="502" y="249" font-size="12" text-anchor="middle" fill="#f5c08f">нет</text>
+  <path d="M637,284 L637,334" fill="none" stroke="#6fcf97" stroke-width="2" marker-end="url(#fg)"/>
+  <text x="647" y="314" font-size="12" fill="#8fdcae">да</text>
+  <rect x="557" y="334" width="160" height="40" rx="10" fill="#1d3a2b" stroke="#6fcf97" stroke-width="1.5"/>
+  <text x="637" y="359" font-size="14" text-anchor="middle" fill="#d5f5e3">вернуть значение</text>
+
+  <text x="32" y="338" font-size="13" fill="#b8bcc2">Остановка только на пустой ячейке, которая никогда не занималась.</text>
+  <text x="32" y="358" font-size="13" fill="#9a9fa6">Надгробие и чужой ключ означают: идти дальше по пробам.</text>
+</svg>

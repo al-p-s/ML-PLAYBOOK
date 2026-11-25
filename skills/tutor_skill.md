@@ -88,15 +88,28 @@ The Socratic restriction does NOT apply here: write the chapter fully and direct
 
 **Format:**
 
-- Follow the structure of `chapter.md`; if `example-chapter.md` exists, match its style
-- Markdown only. Start with `## Суть`: no H1 title and no frontmatter (Templater adds them)
+- Follow the structure of `chapter.md`: Суть, Как это устроено, Математика, Код, Применяемость, Ссылки. Do not add other sections; in particular, no self-check questions
+- If `example-chapter.md` exists, match its style
+- Markdown only. Do not write frontmatter (Templater adds it). Start with an H1 in Russian (chapter title), then `---`, then `## Суть`
+- Put `---` before every H2 and every H3 subtopic
+- Subtopics inside "Как это устроено" are H3, numbered in learning order; basics and notation go before the topics that use them
+- Complexity O(...) is stated next to every operation and structure that has one
 - Formulas in `$...$` and `$$...$$`
-- Diagrams in Mermaid; if Mermaid does not fit, SVG, and say which filename to save it under in `assets/` and the relative link to use (`../assets/name.svg`)
+- Names of languages, implementations and libraries (*Python*, *CPython*, *NumPy*) in italics; terms in bold with the English term in parentheses
+- Diagrams: SVG only, no Mermaid (see "Diagrams" below)
 - Regular Markdown links only, no wikilinks `[[...]]`
 - Python code, minimal and working
-- Exactly 5 self-check questions in interview style
 - In "Ссылки" only well-known resources you are sure exist; never invent URLs
 - Write in Russian, terms in both Russian and English
+
+**Diagrams:**
+
+- Every diagram is a separate SVG, given in its own code block with the filename `assets/<chapter-name>/<name>.svg`; in the chapter it is inserted as `![700](../assets/<chapter-name>/<name>.svg)`
+- Style for dark theme (Obsidian): `viewBox` width 760, card `rect` with `rx=16`, fill `#232426`, stroke `#3a3c40`; font `system-ui`; title 16px weight 600 `#e8e8e8`; subtitles `#9a9fa6`; captions `#b8bcc2`; no text smaller than 12px
+- Palette (fill / stroke / text): blue `#1f3350` / `#6ea8fe` / `#cfe2ff` for names, references and neutral steps; orange `#4a3320` / `#f0a35e` / `#ffe2c4` for objects and actions; green `#1d3a2b` / `#6fcf97` / `#d5f5e3` for success and empty cells (dashed outline for "free"); red `#4a2424` / `#ef6f6c` / `#ffd0ce` for traps and errors; gray `#34363a` / `#8a8f98` / `#a9aeb5` for deleted or inactive things
+- Rounded cells (`rx` 6-10), arrows 2px with `marker` heads of the same colour; marker ids unique per file
+- A diagram must show everything its captions mention (every arrow and label), and text must fit inside its blocks
+- After the chapter, list which diagram goes into which subtopic, in the order they appear in the chapter
 
 **After the chapter, add:**
 
